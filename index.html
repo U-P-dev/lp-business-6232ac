@@ -297,15 +297,32 @@
 <link rel="canonical" href="./">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "おまた歯科医院", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0034 東京都杉並区桃井２丁目３−４"}, "telephone": "03-3397-6480"}</script>
 <style>
-.vbar{position:relative;z-index:10000;background:#1c1c1c;color:#fff;
-  padding:12px 0;font-size:13px;line-height:1.7;font-family:sans-serif}
-.vbar .wrap{max-width:1080px;margin:0 auto;padding:0 20px;
-  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
-.vbar__note{opacity:.75;flex:1 1 260px;min-width:0}
-.vbar__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.vbar__link{display:inline-block;color:#fff;text-decoration:none;
-  padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-.vbar__link[aria-current]{background:#fff;color:#1c1c1c;font-weight:700;box-shadow:none}
+nav.vbar{position:relative !important;z-index:10000 !important;display:block !important;
+  background:#1c1c1c !important;color:#fff !important;margin:0 !important;
+  padding:12px 0 !important;font-size:13px !important;line-height:1.7 !important;
+  font-family:sans-serif !important;max-width:none !important;
+  opacity:1 !important;visibility:visible !important;transform:none !important}
+nav.vbar .vbar__inner{max-width:1080px !important;margin:0 auto !important;
+  padding:0 20px !important;display:flex !important;flex-wrap:wrap !important;
+  gap:10px 18px !important;align-items:center !important;width:auto !important}
+nav.vbar .vbar__note{opacity:.75 !important;flex:1 1 260px !important;
+  min-width:0 !important;color:#fff !important}
+nav.vbar .vbar__list{display:flex !important;flex-wrap:wrap !important;gap:8px !important;
+  list-style:none !important;margin:0 !important;padding:0 !important}
+nav.vbar .vbar__list li{display:block !important;margin:0 !important;padding:0 !important;
+  list-style:none !important;width:auto !important}
+nav.vbar .vbar__link{display:inline-block !important;color:#fff !important;
+  text-decoration:none !important;padding:6px 14px !important;font-size:13px !important;
+  border-radius:999px !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4) !important;
+  background:transparent !important;opacity:1 !important;visibility:visible !important;
+  transform:none !important;letter-spacing:normal !important}
+nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !important;
+  font-weight:700 !important;box-shadow:none !important}
+@media (max-width:520px){
+  nav.vbar{padding:8px 0 !important;font-size:12px !important;line-height:1.5 !important}
+  nav.vbar .vbar__inner{padding:0 14px !important;gap:8px 10px !important}
+  nav.vbar .vbar__link{padding:5px 10px !important;font-size:12px !important}
+}
 #contact{padding:72px 20px}
 #contact .narrow{max-width:560px;margin:0 auto}
 #contact .cta h2{font-size:24px;margin:0 0 12px}
@@ -326,6 +343,10 @@
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -340,7 +361,7 @@
     <span class="seal" aria-hidden="true">歯</span>
     <span class="brand__name">
       おまた歯科医院
-      <span class="brand__en">OMATA DENTAL CLINIC</span>
+      <span class="brand__en">Omata Dental Clinic</span>
     </span>
   </span>
   <nav>
@@ -359,15 +380,15 @@
     <div class="hero__inner">
       <div class="hero__photo ph"><img src="https://images.unsplash.com/photo-1777793389944-f7165259a05c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8ZGVudGFsJTIwY2xpbmljJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc4NjczNTEwNnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店内の空気が分かる写真（人物なしで可）" loading="eager" fetchpriority="high" decoding="async"></div>
       <h1 class="hero__copy">
-        <span class="ln"><span class="np">歯のことを、</span></span><span class="ln"><span class="np">気軽に</span><span class="np">相談できる</span><span class="np">場所に。</span></span><span class="ln"><span class="np">杉並区桃井の</span><span class="np">歯科医院</span></span>
+        <span class="ln"><span class="np">家族みんなで</span></span><span class="ln"><span class="np">通える、</span></span><span class="ln"><span class="np">街のかかりつけ</span><span class="np">歯科医院。</span></span>
       </h1>
       <p class="hero__where">
-        <span class="np">東京都杉並区桃井の歯科医院。</span><span class="np">むし歯の治療から定期検診まで、</span><span class="np">地域の皆さまのお口の健康をお手伝いします。</span>
+        <span class="np">東京都杉並区桃井の</span><span class="np">歯科医院。</span><span class="np">むし歯治療から予防まで。</span>
       </p>
       <div class="hero__desk">
         <dl>
           <dt>本日</dt>
-          <dd></dd>
+          <dd>—</dd>
         </dl>
         <dl>
           <dt>お電話</dt>
@@ -382,79 +403,79 @@
   <section id="menu" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">TREATMENT</span>
+        <span class="hd__en">Services</span>
         <h2><span class="np">診療内容の</span><span class="np">ご案内</span></h2>
       </div>
       <p class="lead">
-        <span class="np">おまた歯科医院では、</span><span class="np">むし歯や歯周病の治療から、</span><span class="np">入れ歯のご相談、</span><span class="np">定期検診まで、</span><span class="np">暮らしに寄り添う</span><span class="np">歯科診療を行っています。</span>
+        <span class="np">むし歯や歯周病の治療から、</span><span class="np">お子さまの歯のケア、</span><span class="np">入れ歯のご相談まで。</span><span class="np">お口の悩みに</span><span class="np">幅広く</span><span class="np">対応します。</span>
       </p>
 
-      <p class="grp">おもな診療内容</p>
+      <p class="grp">一般歯科</p>
       <ul class="rows">
         <li class="row">
           <span class="row__name">
             むし歯の治療
-            <span class="row__note"><span class="np">痛みの程度を確かめながら、</span><span class="np">歯を残すことを考えて</span><span class="np">治療を進めます。</span></span>
+            <span class="row__note"><span class="np">痛みや不安に配慮しながら、</span><span class="np">ていねいな治療を</span><span class="np">心がけています。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
             歯周病の治療
-            <span class="row__note"><span class="np">歯ぐきの腫れや出血など、</span><span class="np">気になる症状に合わせて</span><span class="np">ケアを行います。</span></span>
+            <span class="row__note"><span class="np">歯ぐきの腫れや出血が</span><span class="np">気になる方は</span><span class="np">お早めにご相談ください。</span></span>
+          </span>
+          <span class="row__pr">—</span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            根の治療（歯内療法）
+            <span class="row__note"><span class="np">歯の根の中を清掃し、</span><span class="np">できるだけ歯を残すことを</span><span class="np">めざします。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
             入れ歯・義歯
-            <span class="row__note"><span class="np">合わない・痛いといった</span><span class="np">入れ歯のお悩みも</span><span class="np">お気軽にご相談ください。</span></span>
+            <span class="row__note"><span class="np">お口に合わせた入れ歯の作製や、</span><span class="np">調整のご相談を承ります。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            詰め物・被せ物
-            <span class="row__note"><span class="np">外れた・欠けたときの</span><span class="np">作り直しにも対応します。</span></span>
+            親知らずのご相談
+            <span class="row__note"><span class="np">生え方や症状に応じて、</span><span class="np">対応をご案内します。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            歯の根の治療
-            <span class="row__note"><span class="np">歯の中の神経の治療です。</span><span class="np">回数がかかることがあります。</span></span>
-          </span>
-          <span class="row__pr">—</span>
-        </li>
-        <li class="row">
-          <span class="row__name">
-            お口の健康相談
-            <span class="row__note"><span class="np">どこに行けばよいか</span><span class="np">分からないお悩みも、</span><span class="np">まずはお聞かせください。</span></span>
+            知覚過敏のご相談
+            <span class="row__note"><span class="np">冷たいものが歯にしみるなど、</span><span class="np">気になる症状は</span><span class="np">お気軽にご相談ください。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
       </ul>
 
-      <p class="grp">予防とメインテナンス</p>
+      <p class="grp">予防・小児歯科</p>
       <ul class="rows">
         <li class="row">
           <span class="row__name">
             定期検診
-            <span class="row__note"><span class="np">むし歯や歯周病の</span><span class="np">早期発見のために、</span><span class="np">定期的な受診をおすすめします。</span></span>
+            <span class="row__note"><span class="np">むし歯や歯周病の</span><span class="np">早期発見のために、</span><span class="np">定期的な検診をおすすめします。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
             歯のクリーニング
-            <span class="row__note"><span class="np">歯みがきでは落としにくい</span><span class="np">汚れを取り除きます。</span></span>
+            <span class="row__note"><span class="np">歯の汚れや歯石を取り除き、</span><span class="np">お口の清潔を保つお手伝いをします。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            歯みがき指導
-            <span class="row__note"><span class="np">お口に合った歯ブラシ選びや</span><span class="np">みがき方を一緒に確認します。</span></span>
+            小児歯科
+            <span class="row__note"><span class="np">お子さまのペースに合わせて、</span><span class="np">無理のない診療を心がけます。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
@@ -462,36 +483,36 @@
 
       
       <div class="honest">
-        <h3><span class="np">治療費についての</span><span class="np">ご案内</span></h3>
+        <h3><span class="np">はじめて受診される</span><span class="np">方へ</span></h3>
         <p class="note-s">
-          <span class="np">費用は治療の内容によって異なり、</span><span class="np">受診の際にご説明します。</span>
+          <span class="np">ご来院の際は、</span><span class="np">次のものをご用意ください。</span>
         </p>
         <dl>
           <div>
-            <dt>初診時</dt>
-            <dd>—</dd>
+            <dt>健康保険証</dt>
+            <dd>ご持参ください</dd>
           </div>
           <div>
-            <dt>再診時</dt>
-            <dd>—</dd>
+            <dt>お薬手帳</dt>
+            <dd>お持ちの方のみ</dd>
           </div>
           <div>
-            <dt>検査・相談</dt>
-            <dd class="free">—</dd>
+            <dt>各種医療証</dt>
+            <dd class="free">お持ちの方はご持参ください</dd>
           </div>
           <div>
-            <dt>処置・治療</dt>
-            <dd class="free">—</dd>
+            <dt>ご予約</dt>
+            <dd class="free">お電話で承ります</dd>
           </div>
           <div>
-            <dt>自由診療を行う場合</dt>
-            <dd class="free">—</dd>
+            <dt>問診票</dt>
+            <dd class="free">ご来院時にご記入</dd>
           </div>
         </dl>
       </div>
 
       <p class="menu-note">
-        <span class="np">費用は保険の負担割合や</span><span class="np">治療の内容により異なります。</span><span class="np">自由診療は事前に費用をご説明し、</span><span class="np">ご了承のうえで行います。</span>
+        <span class="np">保険診療についてや</span><span class="np">お支払い方法など、</span><span class="np">ご不明な点は</span><span class="np">お気軽にお尋ねください。</span>
       </p>
     </div>
   </section>
@@ -500,61 +521,61 @@
   <section id="beans" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">CONSULTATION</span>
-        <h2><span class="np">こんな症状、</span><span class="np">ご相談ください</span></h2>
+        <span class="hd__en">Consultation</span>
+        <h2><span class="np">こんなお悩み、</span><span class="np">ありませんか</span></h2>
       </div>
       <p class="lead">
-        <span class="np">「これくらいで行っていいのかな」という</span><span class="np">小さな気がかりこそ、</span><span class="np">早めのご相談が</span><span class="np">お口の健康を守る</span><span class="np">第一歩に</span><span class="np">なります。</span>
+        <span class="np">「歯が痛い」「歯ぐきから血が出る」など、</span><span class="np">気になる症状はありませんか。</span><span class="np">小さなお悩みでも、</span><span class="np">どうぞ</span><span class="np">お気軽に</span><span class="np">ご相談ください。</span>
       </p>
       <ul class="beans">
         <li class="bean">
           <span class="bean__no">01</span>
           <span class="bean__body">
-            <span class="bean__name">歯が痛む・しみる</span>
-            <span class="bean__meta">むし歯・知覚過敏などのご相談</span>
-            <span class="bean__desc"><span class="np">がまんせず、</span><span class="np">早めにご相談ください。</span><span class="np">原因を確かめてから</span><span class="np">治療をご説明します。</span></span>
+            <span class="bean__name">歯の痛み・しみ</span>
+            <span class="bean__meta">むし歯・知覚過敏</span>
+            <span class="bean__desc"><span class="np">我慢せずに</span><span class="np">早めに受診いただくことで、</span><span class="np">治療の負担を</span><span class="np">抑えやすくなります。</span></span>
           </span>
-          <span class="bean__pr">—</span>
+          <span class="bean__pr">保険診療</span>
         </li>
         <li class="bean">
           <span class="bean__no">02</span>
           <span class="bean__body">
             <span class="bean__name">歯ぐきの腫れ・出血</span>
-            <span class="bean__meta">歯周病のご相談</span>
-            <span class="bean__desc"><span class="np">みがくときの出血は、</span><span class="np">歯ぐきからの</span><span class="np">サインかもしれません。</span><span class="np">まずは検査から。</span></span>
+            <span class="bean__meta">歯周病</span>
+            <span class="bean__desc"><span class="np">歯周病は</span><span class="np">気づかないうちに</span><span class="np">進行することがあります。</span><span class="np">早めの受診が大切です。</span></span>
           </span>
-          <span class="bean__pr">—</span>
+          <span class="bean__pr">保険診療</span>
         </li>
         <li class="bean">
           <span class="bean__no">03</span>
           <span class="bean__body">
-            <span class="bean__name">入れ歯が合わない</span>
-            <span class="bean__meta">入れ歯・義歯のご相談</span>
-            <span class="bean__desc"><span class="np">噛みにくさや痛みに合わせて、</span><span class="np">調整や作り替えを</span><span class="np">ご提案します。</span></span>
+            <span class="bean__name">入れ歯のお悩み</span>
+            <span class="bean__meta">義歯の作製・調整</span>
+            <span class="bean__desc"><span class="np">合わない・痛いなどのお悩みは、</span><span class="np">調整や作り直しで</span><span class="np">対応できる場合があります。</span></span>
           </span>
-          <span class="bean__pr">—</span>
+          <span class="bean__pr">保険診療</span>
         </li>
         <li class="bean">
           <span class="bean__no">04</span>
           <span class="bean__body">
-            <span class="bean__name">お口のにおいが気になる</span>
-            <span class="bean__meta">クリーニング・口臭のご相談</span>
-            <span class="bean__desc"><span class="np">原因はさまざまです。</span><span class="np">お口の状態を確かめて、</span><span class="np">できるケアを</span><span class="np">一緒に考えます。</span></span>
+            <span class="bean__name">お子さまの歯</span>
+            <span class="bean__meta">小児歯科</span>
+            <span class="bean__desc"><span class="np">歯みがきの練習から</span><span class="np">むし歯の治療まで、</span><span class="np">お子さまの歯の健康を</span><span class="np">見守ります。</span></span>
           </span>
-          <span class="bean__pr">—</span>
+          <span class="bean__pr">保険診療</span>
         </li>
         <li class="bean">
           <span class="bean__no">05</span>
           <span class="bean__body">
-            <span class="bean__name">症状はないけれど検診したい</span>
-            <span class="bean__meta">定期検診のご相談</span>
-            <span class="bean__desc"><span class="np">症状のないうちの受診が、</span><span class="np">むし歯や歯周病の</span><span class="np">早期発見につながります。</span></span>
+            <span class="bean__name">定期検診・クリーニング</span>
+            <span class="bean__meta">予防歯科</span>
+            <span class="bean__desc"><span class="np">痛くなる前の通院が、</span><span class="np">歯を長く保つことに</span><span class="np">つながります。</span></span>
           </span>
-          <span class="bean__pr">—</span>
+          <span class="bean__pr">保険診療</span>
         </li>
       </ul>
       <p class="note-s">
-        <span class="np">診療の内容や回数は、</span><span class="np">お口の状態によって異なります。</span><span class="np">まずはお気軽にお電話ください。</span>
+        <span class="np">保険適用の可否は</span><span class="np">症状により異なります。</span><span class="np">詳しくは受診時にお尋ねください。</span>
       </p>
     </div>
   </section>
@@ -563,7 +584,7 @@
   <section id="reserve" class="band reserve">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">RESERVATION</span>
+        <span class="hd__en">Appointment</span>
         <h2><span class="np">ご予約・</span><span class="np">お問い合わせ</span></h2>
       </div>
       <div class="ways">
@@ -571,21 +592,21 @@
           <span class="way__label">お電話でのご予約</span>
           <a class="way__value" href="tel:0300000000">03-3397-6480</a>
           <p class="way__note">
-            <span class="np">診療中は</span><span class="np">お電話に出られないことがあります。</span><span class="np">その場合は、</span><span class="np">時間をおいておかけ直しください。</span>
+            <span class="np">診療中は</span><span class="np">お電話に出られない場合があります。</span><span class="np">時間をおいて</span><span class="np">おかけ直しください。</span>
           </p>
         </div>
         <div class="way">
           <span class="way__label">メールでのお問い合わせ</span>
-          <a class="btn-key" href="#contact">メールでお問い合わせ</a>
+          <a class="btn-key" href="#contact">メールで問い合わせる</a>
           <p class="way__note">
-            <span class="np">メールの確認には</span><span class="np">お時間をいただくことがあります。</span><span class="np">お急ぎの場合は</span><span class="np">お電話をご利用ください。</span>
+            <span class="np">ご返信まで</span><span class="np">お時間をいただく場合があります。</span><span class="np">お急ぎの方は</span><span class="np">お電話をご利用ください。</span>
           </p>
         </div>
       </div>
       <ul class="promise">
-        <li><span class="np">初めての方には、</span><span class="np">現在の症状や気になることを</span><span class="np">うかがってから、</span><span class="np">検査と治療の進め方を</span><span class="np">ご説明します。</span></li>
-        <li><span class="np">治療の内容と費用は、</span><span class="np">始める前にご説明し、</span><span class="np">ご了承いただいたうえで</span><span class="np">進めていきます。</span></li>
-        <li><span class="np">ご予約の変更やキャンセルは、</span><span class="np">お分かりになった時点で</span><span class="np">お電話にてご連絡ください。</span></li>
+        <li><span class="np">受診を迷っている段階の</span><span class="np">ご相談も歓迎です。</span><span class="np">症状を</span><span class="np">お聞かせいただくだけでも</span><span class="np">構いません。</span></li>
+        <li><span class="np">ご予約の変更やキャンセルは、</span><span class="np">分かった時点で</span><span class="np">お早めに</span><span class="np">お電話にてご連絡ください。</span></li>
+        <li><span class="np">痛みが強いなど</span><span class="np">急な症状のときは、</span><span class="np">まずはお電話でその旨をお伝えください。</span></li>
       </ul>
     </div>
   </section>
@@ -595,32 +616,32 @@
   <section id="about" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">PHILOSOPHY</span>
-        <h2><span class="np">おまた歯科医院の</span><span class="np">考え方</span></h2>
+        <span class="hd__en">Philosophy</span>
+        <h2><span class="np">当院が</span><span class="np">大切にすること</span></h2>
       </div>
       <p class="lead">
-        <span class="np">歯科医院は、</span><span class="np">痛くなってから行く場所と</span><span class="np">思われがちです。</span><span class="np">おまた歯科医院は、</span><span class="np">悪くなる前に立ち寄れる</span><span class="np">身近な存在でありたいと考え、</span><span class="np">杉並区桃井の皆さまの</span><span class="np">お口の健康に寄り添っていきます。</span>
+        <span class="np">歯の治療は、</span><span class="np">不安や緊張を</span><span class="np">ともなうものです。</span><span class="np">だからこそ当院は、</span><span class="np">ていねいな説明と</span><span class="np">痛みへの配慮を大切に、</span><span class="np">安心して通える</span><span class="np">歯科医院でありたいと考えています。</span>
       </p>
       <div class="pledges">
         <div class="pledge">
           <span class="pledge__no">一</span>
-          <h3><span class="np">ていねいな</span><span class="np">説明を心がけます</span></h3>
-          <p><span class="np">検査の結果や治療の進め方を、</span><span class="np">分かりやすい言葉で</span><span class="np">お伝えします。</span></p>
+          <h3><span class="np">わかりやすい</span><span class="np">説明</span></h3>
+          <p><span class="np">現在の状態と治療の内容を、</span><span class="np">わかりやすい言葉で</span><span class="np">ご説明します。</span></p>
         </div>
         <div class="pledge">
           <span class="pledge__no">二</span>
           <h3><span class="np">痛みに</span><span class="np">配慮した診療</span></h3>
-          <p><span class="np">痛みが不安な方には、</span><span class="np">その気持ちをうかがいながら、</span><span class="np">無理のないペースで</span><span class="np">進めます。</span></p>
+          <p><span class="np">痛みや不安を</span><span class="np">できるだけ和らげられるよう、</span><span class="np">声かけと</span><span class="np">ペース配分を工夫します。</span></p>
         </div>
         <div class="pledge">
           <span class="pledge__no">三</span>
-          <h3><span class="np">予防を大切にします</span></h3>
-          <p><span class="np">治療が終わったあとも、</span><span class="np">定期検診とクリーニングで</span><span class="np">お口の健康を</span><span class="np">支えていきます。</span></p>
+          <h3><span class="np">予防を大切にする</span></h3>
+          <p><span class="np">治療が終わったあとも、</span><span class="np">定期検診を通じて</span><span class="np">お口の健康を</span><span class="np">守るお手伝いをします。</span></p>
         </div>
         <div class="pledge">
           <span class="pledge__no">四</span>
-          <h3><span class="np">通いやすい</span><span class="np">かかりつけ医に</span></h3>
-          <p><span class="np">小さな気がかりでも</span><span class="np">相談しやすい、</span><span class="np">身近な歯科医院を目指します。</span></p>
+          <h3><span class="np">地域の</span><span class="np">かかりつけ医として</span></h3>
+          <p><span class="np">子どもから大人まで、</span><span class="np">長く通っていただける</span><span class="np">医院をめざします。</span></p>
         </div>
       </div>
       <div class="strip">
@@ -635,40 +656,40 @@
   <section id="person" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">DOCTOR</span>
-        <h2><span class="np">院長のご紹介</span></h2>
+        <span class="hd__en">Doctor</span>
+        <h2><span class="np">医師のご紹介</span></h2>
       </div>
       <div class="person">
         <div class="person__photo ph"><img src="https://images.unsplash.com/photo-1657470179447-0f5aa16daa91?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8ZGVudGFsJTIwY2xpbmljJTIwcG9ydHJhaXR8ZW58MXwxfHx8MTc4NjczOTk1M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店主（作業中の横顔で可）" loading="lazy" decoding="async"></div>
         <div class="person__body">
           <p class="person__name">
-            —
-            <span class="person__role">院長</span>
+            おまた歯科医院 院長
+            <span class="person__role">歯科医師</span>
           </p>
           <dl>
             <div>
               <dt>診療科目</dt>
-              <dd><span class="np">むし歯・歯周病の治療から</span><span class="np">定期検診までの歯科診療</span></dd>
+              <dd><span class="np">一般的な歯科診療を</span><span class="np">中心に行っています</span></dd>
             </div>
             <div>
-              <dt>診療時間・休診日</dt>
-              <dd><span class="np">現在の診療時間は、</span><span class="np">お電話にて</span><span class="np">ご確認ください。</span></dd>
+              <dt>診療方針</dt>
+              <dd><span class="np">症状とご希望をうかがい、</span><span class="np">納得いただいてから</span><span class="np">治療を進めます</span></dd>
             </div>
             <div>
-              <dt>所在地</dt>
-              <dd><span class="np">東京都</span><span class="np">杉並区桃井</span></dd>
+              <dt>心がけ</dt>
+              <dd><span class="np">痛みや不安への配慮を</span><span class="np">いちばんに考えています</span></dd>
             </div>
             <div>
-              <dt>ご予約</dt>
-              <dd><span class="np">お電話またはメールで</span><span class="np">ご予約・ご相談を</span><span class="np">承ります。</span></dd>
+              <dt>患者さまへ</dt>
+              <dd><span class="np">気になることは</span><span class="np">どんな小さなことでも</span><span class="np">お尋ねください</span></dd>
             </div>
             <div>
-              <dt>初めての方へ</dt>
-              <dd><span class="np">問診票のご記入があるため、</span><span class="np">少し早めのご来院を</span><span class="np">おすすめします。</span></dd>
+              <dt>予防について</dt>
+              <dd><span class="np">治療だけでなく、</span><span class="np">予防のための通院も</span><span class="np">大切にしています</span></dd>
             </div>
             <div>
-              <dt>急な痛みのとき</dt>
-              <dd><span class="np">まずはお電話ください。</span><span class="np">受付の状況をご案内します。</span></dd>
+              <dt>ご相談</dt>
+              <dd><span class="np">お口の悩み全般、</span><span class="np">お気軽にご相談ください</span></dd>
             </div>
           </dl>
         </div>
@@ -680,19 +701,19 @@
   <section id="access" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">INFORMATION</span>
-        <h2><span class="np">医院の</span><span class="np">ご案内</span></h2>
+        <span class="hd__en">Access</span>
+        <h2><span class="np">アクセス・</span><span class="np">診療のご案内</span></h2>
       </div>
       <div class="access">
         <div class="access__body">
           <dl>
             <div><dt>住所</dt><dd>東京都杉並区桃井２丁目３−４</dd></div>
             <div><dt>電話</dt><dd>03-3397-6480</dd></div>
-            <div><dt>営業時間</dt><dd></dd></div>
-            <div><dt>定休日</dt><dd></dd></div>
+            <div><dt>営業時間</dt><dd>—</dd></div>
+            <div><dt>定休日</dt><dd>—</dd></div>
             <div><dt>最寄り</dt><dd>—</dd></div>
-            <div><dt>席数</dt><dd>—</dd></div>
-            <div><dt>そのほか</dt><dd><span class="np">東京都杉並区桃井の歯科医院です。</span><span class="np">ご来院の際は、</span><span class="np">住所をお確かめのうえ</span><span class="np">お越しください。</span><span class="np">ご不明な点はお電話でお尋ねください。</span></dd></div>
+            <div><dt>席数</dt><dd>所在地：東京都杉並区桃井</dd></div>
+            <div><dt>そのほか</dt><dd><span class="np">診療時間・休診日は</span><span class="np">お電話にてご確認ください。</span><span class="np">道順のご案内も</span><span class="np">いたしますので</span><span class="np">お気軽にお電話ください。</span></dd></div>
           </dl>
         </div>
         <div class="ph"><img src="https://images.unsplash.com/photo-1780332693272-e08ac61c4df9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8N3x8ZGVudGFsJTIwY2xpbmljJTIwc3RvcmVmcm9udCUyMGV4dGVyaW9yfGVufDF8MHx8fDE3ODY3NTAxNDN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観" loading="lazy" decoding="async"></div>
@@ -707,7 +728,7 @@
     <span class="seal" aria-hidden="true">歯</span>
     <span class="brand__name">
       おまた歯科医院
-      <span class="brand__en">OMATA DENTAL CLINIC</span>
+      <span class="brand__en">Omata Dental Clinic</span>
     </span>
   </span>
   <p>
@@ -718,7 +739,7 @@
     <a href="#contact" aria-label="X">X</a>
     <a href="#contact" aria-label="LINE">Ln</a>
   </div>
-  <small>© OMATA DENTAL CLINIC</small>
+  <small>© Omata Dental Clinic</small>
 </footer>
 
 <div class="sp-bar">
@@ -747,5 +768,44 @@
   <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_ok','1')" style="margin-left:16px;background:#3498db;color:#fff;border:none;padding:6px 16px;cursor:pointer;border-radius:4px;">同意する</button>
 </div>
 <script>if(!localStorage.getItem('cookie_ok'))document.getElementById('cookie-banner').style.display='block';</script>
+<script data-vbar-offset>
+(function(){
+  var bar = document.querySelector('nav.vbar');
+  if (!bar) return;
+  var pinned = [];
+  var scan = function(){
+    pinned = [];
+    var all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el === bar || bar.contains(el)) continue;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed') continue;
+      /* 元の top は一度だけ測って覚える。再スキャンで**自分が書いた値**を
+         読むと「top が 60 を超えたから対象外」と判定してしまい、
+         下げたきり追随が止まる（2026-08-15 実測） */
+      var top = el.__vbarTop;
+      if (top === undefined) {
+        top = parseFloat(cs.top);
+        if (isNaN(top) || top > 60) continue;
+        el.__vbarTop = top;
+      }
+      if (el.getBoundingClientRect().height >= innerHeight * 0.9) continue;
+      pinned.push({el: el, top: top});
+    }
+  };
+  var sync = function(){
+    var d = Math.max(0, bar.getBoundingClientRect().bottom);
+    for (var i = 0; i < pinned.length; i++) {
+      pinned[i].el.style.top = (pinned[i].top + d) + 'px';
+    }
+  };
+  var refresh = function(){ scan(); sync(); };
+  addEventListener('scroll', sync, {passive: true});
+  addEventListener('resize', refresh);
+  addEventListener('load', refresh);
+  refresh();
+})();
+</script>
 </body>
 </html>
