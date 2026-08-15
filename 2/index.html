@@ -228,15 +228,32 @@
 <link rel="canonical" href="./">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "おまた歯科医院", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0034 東京都杉並区桃井２丁目３−４"}, "telephone": "03-3397-6480"}</script>
 <style>
-.vbar{position:relative;z-index:10000;background:#1c1c1c;color:#fff;
-  padding:12px 0;font-size:13px;line-height:1.7;font-family:sans-serif}
-.vbar .wrap{max-width:1080px;margin:0 auto;padding:0 20px;
-  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
-.vbar__note{opacity:.75;flex:1 1 260px;min-width:0}
-.vbar__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.vbar__link{display:inline-block;color:#fff;text-decoration:none;
-  padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-.vbar__link[aria-current]{background:#fff;color:#1c1c1c;font-weight:700;box-shadow:none}
+nav.vbar{position:relative !important;z-index:10000 !important;display:block !important;
+  background:#1c1c1c !important;color:#fff !important;margin:0 !important;
+  padding:12px 0 !important;font-size:13px !important;line-height:1.7 !important;
+  font-family:sans-serif !important;max-width:none !important;
+  opacity:1 !important;visibility:visible !important;transform:none !important}
+nav.vbar .vbar__inner{max-width:1080px !important;margin:0 auto !important;
+  padding:0 20px !important;display:flex !important;flex-wrap:wrap !important;
+  gap:10px 18px !important;align-items:center !important;width:auto !important}
+nav.vbar .vbar__note{opacity:.75 !important;flex:1 1 260px !important;
+  min-width:0 !important;color:#fff !important}
+nav.vbar .vbar__list{display:flex !important;flex-wrap:wrap !important;gap:8px !important;
+  list-style:none !important;margin:0 !important;padding:0 !important}
+nav.vbar .vbar__list li{display:block !important;margin:0 !important;padding:0 !important;
+  list-style:none !important;width:auto !important}
+nav.vbar .vbar__link{display:inline-block !important;color:#fff !important;
+  text-decoration:none !important;padding:6px 14px !important;font-size:13px !important;
+  border-radius:999px !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4) !important;
+  background:transparent !important;opacity:1 !important;visibility:visible !important;
+  transform:none !important;letter-spacing:normal !important}
+nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !important;
+  font-weight:700 !important;box-shadow:none !important}
+@media (max-width:520px){
+  nav.vbar{padding:8px 0 !important;font-size:12px !important;line-height:1.5 !important}
+  nav.vbar .vbar__inner{padding:0 14px !important;gap:8px 10px !important}
+  nav.vbar .vbar__link{padding:5px 10px !important;font-size:12px !important}
+}
 #contact{padding:72px 20px}
 #contact .narrow{max-width:560px;margin:0 auto}
 #contact .cta h2{font-size:24px;margin:0 0 12px}
@@ -257,6 +274,10 @@
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -305,10 +326,10 @@
       <div class="split__text fade-up">
         <p class="eyebrow">ABOUT</p>
         <h2>
-          この街の暮らしに、<br>かかりつけの歯科医院を。
+          歯のことを、<br>暮らしのそばに。
         </h2>
         <p class="lead">
-          おまた歯科医院は、東京都杉並区桃井にある歯科医院です。むし歯や歯周病の治療から、予防のための定期的なケアまで、日々のお口の健康に寄り添います。歯科医師が検査の結果と治療の選択肢をわかりやすくご説明し、ご希望をうかがいながら、おひとりおひとりに合わせた診療を心がけています。
+          おまた歯科医院は、東京都杉並区桃井にあります。院長が一人ひとりのお話をうかがい、お口の状態と治療の選択肢をわかりやすくご説明し、納得いただいてから治療を始めます。むし歯を削るだけの場所ではなく、この町で通い続けられる、かかりつけの医院でありたいと考えています。
         </p>
         <a class="more" href="#salon">VIEW MORE</a>
       </div>
@@ -325,10 +346,10 @@
       <div class="split__text fade-up">
         <p class="eyebrow">SALON</p>
         <h2>
-          緊張をほどいて、<br>座ってもらえるように。
+          緊張が、<br>ほどけていく診療室。
         </h2>
         <p class="lead">
-          歯科医院の椅子に座ると、それだけで少し身構えてしまう方も多いはずです。だからこそ、院内は落ち着いた色合いでまとめ、診療の前にはこれから行うことをひとつずつお伝えするようにしています。わからないことは、遠慮なくお聞きください。ご予約はお電話またはメールで承っています。
+          はじめての場所で緊張しないように、待合室から診療室まで、明るく静かな空間づくりを心がけています。治療の前には手順をご説明し、途中も声をかけながら進めます。歯科医院が苦手な方やお子さまも、ご自身のペースで通えるように。急がず、ていねいに診ることを大切にしています。
         </p>
       </div>
       <div class="split__duo">
@@ -342,15 +363,15 @@
   <section id="menu" class="gap-l">
     <div class="fade-up">
       <p class="eyebrow">MENU</p>
-      <h2>おもな診療内容</h2>
+      <h2>診療のご案内</h2>
       <ul class="menu-list">
-        <li><span class="nm">むし歯の治療</span><span class="dots"></span><span class="pr">—</span></li>
-        <li><span class="nm">歯周病の治療</span><span class="dots"></span><span class="pr">—</span></li>
-        <li><span class="nm">定期検診・クリーニング</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">むし歯治療</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">歯周病治療</span><span class="dots"></span><span class="pr">—</span></li>
         <li><span class="nm">小児歯科</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">予防歯科・クリーニング</span><span class="dots"></span><span class="pr">—</span></li>
       </ul>
       <p class="menu-note">
-        診療時間・休診日、ご予約の空き状況は、お電話またはメールでお問い合わせください。内容により通院回数や所要時間は異なります。
+        治療の内容や通院回数は、お口の状態により異なります。診療時間のご確認やご予約は、お電話またはメールで承ります。
       </p>
     </div>
   </section>
@@ -359,9 +380,9 @@
   <section class="oneday">
     <div class="oneday__circle fade-up">
       <p class="eyebrow">ONE DAY</p>
-      <h2>医院のある一日</h2>
+      <h2>医院の一日</h2>
       <p>
-        朝、診療室の窓を開けて、器具をひとつずつ整えるところから一日が始まります。午前は定期検診の方、午後は仕事帰りや学校帰りの方。夕方、その日最後の患者さまを見送り、あしたの支度をして灯りを落とします。
+        朝、診療室の窓を開け、器具をひとつずつ整えて一日が始まります。午前は検診の親子連れ、午後は学校帰りの子どもたち。夕方、「またね」と見送って灯りを落とす。杉並区桃井で、そんな日々を重ねています。
       </p>
     </div>
     <div class="oneday__bg ph"><img src="https://images.unsplash.com/photo-1785594732247-d874f32fb1f1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8OHx8ZGVudGFsJTIwY2xpbmljJTIwc3RvcmVmcm9udCUyMGV4dGVyaW9yfGVufDF8MHx8fDE3ODY3NTAxNDN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観 or 店内の引き" loading="lazy" decoding="async"></div>
@@ -375,8 +396,8 @@
         <dl>
           <div><dt>住所</dt><dd>東京都杉並区桃井２丁目３−４</dd></div>
           <div><dt>電話</dt><dd>03-3397-6480</dd></div>
-          <div><dt>営業時間</dt><dd></dd></div>
-          <div><dt>定休日</dt><dd></dd></div>
+          <div><dt>営業時間</dt><dd>—</dd></div>
+          <div><dt>定休日</dt><dd>—</dd></div>
           <div><dt>アクセス</dt><dd>—</dd></div>
         </dl>
       </div>
@@ -437,5 +458,44 @@
   <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_ok','1')" style="margin-left:16px;background:#3498db;color:#fff;border:none;padding:6px 16px;cursor:pointer;border-radius:4px;">同意する</button>
 </div>
 <script>if(!localStorage.getItem('cookie_ok'))document.getElementById('cookie-banner').style.display='block';</script>
+<script data-vbar-offset>
+(function(){
+  var bar = document.querySelector('nav.vbar');
+  if (!bar) return;
+  var pinned = [];
+  var scan = function(){
+    pinned = [];
+    var all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el === bar || bar.contains(el)) continue;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed') continue;
+      /* 元の top は一度だけ測って覚える。再スキャンで**自分が書いた値**を
+         読むと「top が 60 を超えたから対象外」と判定してしまい、
+         下げたきり追随が止まる（2026-08-15 実測） */
+      var top = el.__vbarTop;
+      if (top === undefined) {
+        top = parseFloat(cs.top);
+        if (isNaN(top) || top > 60) continue;
+        el.__vbarTop = top;
+      }
+      if (el.getBoundingClientRect().height >= innerHeight * 0.9) continue;
+      pinned.push({el: el, top: top});
+    }
+  };
+  var sync = function(){
+    var d = Math.max(0, bar.getBoundingClientRect().bottom);
+    for (var i = 0; i < pinned.length; i++) {
+      pinned[i].el.style.top = (pinned[i].top + d) + 'px';
+    }
+  };
+  var refresh = function(){ scan(); sync(); };
+  addEventListener('scroll', sync, {passive: true});
+  addEventListener('resize', refresh);
+  addEventListener('load', refresh);
+  refresh();
+})();
+</script>
 </body>
 </html>
