@@ -328,15 +328,32 @@
 <link rel="canonical" href="./">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "おまた歯科医院", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0034 東京都杉並区桃井２丁目３−４"}, "telephone": "03-3397-6480"}</script>
 <style>
-.vbar{position:relative;z-index:10000;background:#1c1c1c;color:#fff;
-  padding:12px 0;font-size:13px;line-height:1.7;font-family:sans-serif}
-.vbar .wrap{max-width:1080px;margin:0 auto;padding:0 20px;
-  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
-.vbar__note{opacity:.75;flex:1 1 260px;min-width:0}
-.vbar__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.vbar__link{display:inline-block;color:#fff;text-decoration:none;
-  padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-.vbar__link[aria-current]{background:#fff;color:#1c1c1c;font-weight:700;box-shadow:none}
+nav.vbar{position:relative !important;z-index:10000 !important;display:block !important;
+  background:#1c1c1c !important;color:#fff !important;margin:0 !important;
+  padding:12px 0 !important;font-size:13px !important;line-height:1.7 !important;
+  font-family:sans-serif !important;max-width:none !important;
+  opacity:1 !important;visibility:visible !important;transform:none !important}
+nav.vbar .vbar__inner{max-width:1080px !important;margin:0 auto !important;
+  padding:0 20px !important;display:flex !important;flex-wrap:wrap !important;
+  gap:10px 18px !important;align-items:center !important;width:auto !important}
+nav.vbar .vbar__note{opacity:.75 !important;flex:1 1 260px !important;
+  min-width:0 !important;color:#fff !important}
+nav.vbar .vbar__list{display:flex !important;flex-wrap:wrap !important;gap:8px !important;
+  list-style:none !important;margin:0 !important;padding:0 !important}
+nav.vbar .vbar__list li{display:block !important;margin:0 !important;padding:0 !important;
+  list-style:none !important;width:auto !important}
+nav.vbar .vbar__link{display:inline-block !important;color:#fff !important;
+  text-decoration:none !important;padding:6px 14px !important;font-size:13px !important;
+  border-radius:999px !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4) !important;
+  background:transparent !important;opacity:1 !important;visibility:visible !important;
+  transform:none !important;letter-spacing:normal !important}
+nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !important;
+  font-weight:700 !important;box-shadow:none !important}
+@media (max-width:520px){
+  nav.vbar{padding:8px 0 !important;font-size:12px !important;line-height:1.5 !important}
+  nav.vbar .vbar__inner{padding:0 14px !important;gap:8px 10px !important}
+  nav.vbar .vbar__link{padding:5px 10px !important;font-size:12px !important}
+}
 #contact{padding:72px 20px}
 #contact .narrow{max-width:560px;margin:0 auto}
 #contact .cta h2{font-size:24px;margin:0 0 12px}
@@ -357,6 +374,10 @@
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -397,7 +418,7 @@
     <div class="cover__meta">
       <p class="issue">
         <span class="issue__label">COLLECTION</span>
-        <span class="issue__no">vol. 01</span>
+        <span class="issue__no">vol.01</span>
         <span class="issue__sub">2026 SUMMER</span>
       </p>
       <p class="cover__who">
@@ -409,10 +430,10 @@
   
   <div class="statement">
     <h1 class="statement__en">
-      <span class="ln"><span class="np">Your</span><span class="np">Neighborhood</span></span><span class="ln"><span class="np">Dental</span><span class="np">Clinic</span></span>
+      <span class="ln"><span class="np">Gentle</span><span class="np">Dental Care</span></span><span class="ln"><span class="np">For Your</span><span class="np">Smile</span></span>
     </h1>
     <p class="lead fade-up">
-      <span class="np">東京都杉並区桃井の歯科医院です。</span><span class="np">むし歯の治療から</span><span class="np">定期検診まで、</span><span class="np">お口の健康に関わることを</span><span class="np">身近な場所で</span><span class="np">ご相談いただけます。</span>
+      <span class="np">東京都杉並区桃井の</span><span class="np">歯科医院です。</span><span class="np">むし歯の治療から</span><span class="np">毎日の予防ケアまで、</span><span class="np">お口の健康を</span><span class="np">身近で支えます。</span>
     </p>
   </div>
 
@@ -423,49 +444,49 @@
         <span class="num" aria-hidden="true">01</span>
         <p class="sec__no">No.01</p>
         <h2 class="sec__en">COLLECTION</h2>
-        <p class="sec__jp">当院について</p>
+        <p class="sec__jp">おまた歯科医院について</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">COLLECTION</span><span class="rail__line"></span>
       </div>
       <div class="sec__body">
         <p class="lead fade-up">
-          <span class="np">地域の皆さまが通いやすい</span><span class="np">歯科医院であるために、</span><span class="np">わかりやすい説明と</span><span class="np">丁寧な診療を</span><span class="np">心がけています。</span>
+          <span class="np">お口の悩みは、</span><span class="np">人それぞれ違います。</span><span class="np">一人ひとりのお話を伺い、</span><span class="np">納得いただいてから</span><span class="np">治療を進めます。</span>
         </p>
         <div class="gallery">
           <figure class="g1">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1662837775146-871f817c7887?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NHx8ZGVudGFsJTIwY2xpbmljJTIwc3R5bGV8ZW58MXwxfHx8MTc4NjczNTEwOHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Family</span>
-              <span class="jp">ご家族で通える</span>
+              <span>Listening</span>
+              <span class="jp">お話を伺うことから</span>
             </figcaption>
           </figure>
           <figure class="g2">
             <div class="ph wipe wipe-d1"><img src="https://images.unsplash.com/photo-1551601651-71a596031b84?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8ZGVudGFsJTIwY2xpbmljJTIwc3R5bGV8ZW58MXwyfHx8MTc4NjczNTEwOXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Prevention</span>
-              <span class="jp">予防を大切に</span>
+              <span>Explanation</span>
+              <span class="jp">わかりやすい説明</span>
             </figcaption>
           </figure>
           <figure class="g3">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NHx8ZGVudGFsJTIwY2xpbmljJTIwc3R5bGV8ZW58MXwwfHx8MTc4NjczNTEwN3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Kids</span>
-              <span class="jp">お子さまも一緒に</span>
+              <span>Gentle</span>
+              <span class="jp">痛みに配慮した診療</span>
             </figcaption>
           </figure>
           <figure class="g4">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1551601651-71a596031b84?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8Mnx8ZGVudGFsJTIwY2xpbmljfGVufDF8Mnx8fDE3ODY3NTAxNDR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Counseling</span>
-              <span class="jp">わかりやすい説明</span>
+              <span>Family</span>
+              <span class="jp">子どもから大人まで</span>
             </figcaption>
           </figure>
           <figure class="g5">
             <div class="ph wipe wipe-d1"><img src="https://images.unsplash.com/photo-1686740512939-1eca8395e484?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NXx8ZGVudGFsJTIwY2xpbmljJTIwc3R5bGV8ZW58MXwxfHx8MTc4NjczNTEwOHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
               <span>Community</span>
-              <span class="jp">地域のかかりつけ</span>
+              <span class="jp">地域のかかりつけに</span>
             </figcaption>
           </figure>
         </div>
@@ -489,32 +510,32 @@
         <ul class="menu fade-up">
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Treatment</span>
-              <h3>むし歯の治療</h3>
+              <span class="card__en">General</span>
+              <h3>むし歯治療</h3>
             </div>
-            <p><span class="np">痛みや詰め物の外れなど、</span><span class="np">気になる症状を</span><span class="np">診察のうえ</span><span class="np">治療します。</span></p>
+            <p><span class="np">痛みや違和感の</span><span class="np">原因を確認し、</span><span class="np">できるだけ削らない治療を</span><span class="np">心がけています。</span></p>
             <span class="card__pr">—
-              <span class="card__time">—</span>
+              <span class="card__time">約30分</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
               <span class="card__en">Perio</span>
-              <h3>歯周病の治療</h3>
+              <h3>歯周病治療</h3>
             </div>
-            <p><span class="np">歯ぐきの腫れや出血を確認し、</span><span class="np">状態に合わせて</span><span class="np">歯石の除去などを</span><span class="np">行います。</span></p>
+            <p><span class="np">歯ぐきの腫れや出血は</span><span class="np">歯周病のサイン。</span><span class="np">検査とクリーニングで</span><span class="np">早めのケアを。</span></p>
             <span class="card__pr">—
-              <span class="card__time">—</span>
+              <span class="card__time">約45分</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Cleaning</span>
-              <h3>定期検診・クリーニング</h3>
+              <span class="card__en">Prevention</span>
+              <h3>予防歯科・クリーニング</h3>
             </div>
-            <p><span class="np">むし歯や歯周病の予防のため、</span><span class="np">定期的な検診と清掃を</span><span class="np">おすすめしています。</span></p>
+            <p><span class="np">むし歯や歯周病になる前の</span><span class="np">定期的なケアで、</span><span class="np">健やかな歯を守るために。</span></p>
             <span class="card__pr">—
-              <span class="card__time">—</span>
+              <span class="card__time">約45分</span>
             </span>
           </li>
           <li class="card">
@@ -522,34 +543,34 @@
               <span class="card__en">Pediatric</span>
               <h3>小児歯科</h3>
             </div>
-            <p><span class="np">お子さまのペースに合わせて、</span><span class="np">歯みがきの練習や</span><span class="np">治療を進めます。</span></p>
+            <p><span class="np">お子さまのペースに合わせ、</span><span class="np">歯医者さんに慣れることから</span><span class="np">始めます。</span></p>
             <span class="card__pr">—
-              <span class="card__time">—</span>
+              <span class="card__time">約30分</span>
+            </span>
+          </li>
+          <li class="card">
+            <div class="card__head">
+              <span class="card__en">Restoration</span>
+              <h3>詰め物・かぶせ物</h3>
+            </div>
+            <p><span class="np">むし歯の治療あとを補い、</span><span class="np">噛みやすさと見た目を</span><span class="np">整えるための</span><span class="np">治療です。</span></p>
+            <span class="card__pr">—
+              <span class="card__time">約45分</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
               <span class="card__en">Denture</span>
-              <h3>入れ歯（義歯）</h3>
+              <h3>入れ歯のご相談</h3>
             </div>
-            <p><span class="np">新しい入れ歯のご相談や、</span><span class="np">合わなくなった</span><span class="np">入れ歯の調整を</span><span class="np">承ります。</span></p>
+            <p><span class="np">合わない、痛いなどの</span><span class="np">お悩みも、</span><span class="np">調整や作り替えをご相談ください。</span></p>
             <span class="card__pr">—
-              <span class="card__time">—</span>
-            </span>
-          </li>
-          <li class="card">
-            <div class="card__head">
-              <span class="card__en">Consultation</span>
-              <h3>お口のご相談</h3>
-            </div>
-            <p><span class="np">親知らずや噛み合わせなど、</span><span class="np">気になることを</span><span class="np">ご相談いただけます。</span></p>
-            <span class="card__pr">—
-              <span class="card__time">—</span>
+              <span class="card__time">約30分</span>
             </span>
           </li>
         </ul>
         <p class="menu-note fade-up">
-          <span class="np">表示の品目は一例です。</span><span class="np">治療の内容と費用は</span><span class="np">症状により異なり、</span><span class="np">診療の前に</span><span class="np">ご説明いたします。</span>
+          <span class="np">所要時間は目安です。</span><span class="np">症状により</span><span class="np">前後することがあります。</span><span class="np">内容について詳しくは</span><span class="np">受付までお尋ねください。</span>
         </p>
       </div>
     </div>
@@ -571,10 +592,10 @@
         <div class="concept">
           <div class="fade-up">
             <p class="concept__h">
-              <span class="np">納得いただいてから、</span><span class="np">治療を始めます。</span>
+              <span class="np">通いやすい歯科医院で</span><span class="np">あるために。</span>
             </p>
             <p class="lead lead--wide">
-              <span class="np">歯科医院に足が向かないのは、</span><span class="np">何をされるか分からない</span><span class="np">不安があるからだと</span><span class="np">考えています。</span><span class="np">当院では、</span><span class="np">今のお口の状態と</span><span class="np">治療の選択肢をご説明し、</span><span class="np">ご質問にお答えしてから</span><span class="np">診療を進めます。</span><span class="np">分からないことは、</span><span class="np">どうぞそのまま</span><span class="np">お尋ねください。</span>
+              <span class="np">歯科医院は、</span><span class="np">痛くなってから行く場所と</span><span class="np">思われがちです。</span><span class="np">おまた歯科医院は、</span><span class="np">治療の前に説明を尽くし、</span><span class="np">不安を減らすことを</span><span class="np">大切にしています。</span><span class="np">むし歯や歯周病を</span><span class="np">繰り返さないために、</span><span class="np">治療後の予防にも力を入れ、</span><span class="np">気軽に通える場所を</span><span class="np">目指します。</span>
             </p>
           </div>
           <div class="concept__ph ph wipe fade-up"><img src="https://images.unsplash.com/photo-1766338390573-ec092d69cdcb?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NXx8ZGVudGFsJTIwY2xpbmljJTIwaGFuZHMlMjBjbG9zZXVwfGVufDF8MHx8fDE3ODY3MzUxMDZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="施術風景" loading="lazy" decoding="async"></div>
@@ -590,7 +611,7 @@
         <span class="num" aria-hidden="true">04</span>
         <p class="sec__no">No.04</p>
         <h2 class="sec__en">NAILIST</h2>
-        <p class="sec__jp">医師・スタッフのご紹介</p>
+        <p class="sec__jp">院長・スタッフ紹介</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">NAILIST</span><span class="rail__line"></span>
@@ -601,13 +622,13 @@
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1662837625421-5fd8ed6131a0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8Mnx8ZGVudGFsJTIwY2xpbmljJTIwcG9ydHJhaXR8ZW58MXwxfHx8MTc4NjczOTk1M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="人" loading="lazy" decoding="async"></div>
             <p class="person__name">院長</p>
             <p class="person__en">Director</p>
-            <p class="person__note"><span class="np">お口の健康は、</span><span class="np">毎日の暮らしの土台です。</span><span class="np">通いやすい医院を</span><span class="np">地域の皆さまと</span><span class="np">つくっていきます。</span></p>
+            <p class="person__note"><span class="np">お口の小さな変化も</span><span class="np">見逃さないよう、</span><span class="np">一人ひとりと</span><span class="np">向き合う診療を</span><span class="np">心がけています。</span></p>
           </div>
           <div class="person fade-up">
             <div class="ph wipe wipe-d1"><img src="https://images.unsplash.com/photo-1663185551550-f8f56529ac5e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8ZGVudGFsJTIwY2xpbmljJTIwcG9ydHJhaXR8ZW58MXwxfHx8MTc4NjczOTk1M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="人" loading="lazy" decoding="async"></div>
-            <p class="person__name">スタッフ</p>
+            <p class="person__name">スタッフ一同</p>
             <p class="person__en">Staff</p>
-            <p class="person__note"><span class="np">初めての方にも</span><span class="np">リラックスして</span><span class="np">お過ごしいただけるよう、</span><span class="np">笑顔で</span><span class="np">お迎えいたします。</span></p>
+            <p class="person__note"><span class="np">はじめての方も</span><span class="np">緊張せずに</span><span class="np">過ごせるよう、</span><span class="np">受付から笑顔で</span><span class="np">お迎えします。</span></p>
           </div>
         </div>
       </div>
@@ -631,9 +652,9 @@
           <dl class="fade-up">
             <div><dt>住所</dt><dd>東京都杉並区桃井２丁目３−４</dd></div>
             <div><dt>電話</dt><dd>03-3397-6480</dd></div>
-            <div><dt>営業時間</dt><dd></dd></div>
-            <div><dt>定休日</dt><dd></dd></div>
-            <div><dt>席数</dt><dd>診療チェア —台／ご予約受付：お電話・メール</dd></div>
+            <div><dt>営業時間</dt><dd>—</dd></div>
+            <div><dt>定休日</dt><dd>—</dd></div>
+            <div><dt>席数</dt><dd>ご予約はお電話・メールで承ります</dd></div>
             <div><dt>アクセス</dt><dd>—</dd></div>
           </dl>
           <div class="ph fade-up"><img src="https://images.unsplash.com/photo-1766031263281-43cdaa6e624a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8Mnx8ZGVudGFsJTIwY2xpbmljJTIwc3RvcmVmcm9udCUyMGV4dGVyaW9yfGVufDF8MHx8fDE3ODY3NTAxNDN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観" loading="lazy" decoding="async"></div>
@@ -647,11 +668,11 @@
     <div class="fade-up">
       <p class="reserve__en">RESERVATION</p>
       <p class="reserve__jp">
-        <span class="np">気になる症状は、</span><span class="np">お早めにご相談ください。</span>
+        <span class="np">診療時間内に</span><span class="np">お気軽にお電話ください。</span>
       </p>
       <a class="btn" href="#contact" aria-label="WEBで予約する">WEB予約<span class="plus"></span></a>
       <p class="reserve__sub">
-        <span class="np">ご予約は、お電話またはメールで</span><span class="np">承ります。</span><span class="np">診療時間・休診日は、</span><span class="np">お電話にてご確認ください。</span><span class="np">当院は東京都杉並区桃井にございます。</span>
+        <span class="np">ご予約はお電話または</span><span class="np">メールで承ります。</span><span class="np">診療時間・道順のご案内も</span><span class="np">お気軽に</span><span class="np">お問い合わせください。</span>
       </p>
     </div>
   </section>
@@ -661,7 +682,7 @@
 
 
 <footer>
-  <span class="brand">Omata Dental Clinic</span>
+  <span class="brand">OMATA DENTAL CLINIC</span>
   <p>
     東京都杉並区桃井２丁目３−４<br>03-3397-6480
   </p>
@@ -700,5 +721,44 @@
   <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_ok','1')" style="margin-left:16px;background:#3498db;color:#fff;border:none;padding:6px 16px;cursor:pointer;border-radius:4px;">同意する</button>
 </div>
 <script>if(!localStorage.getItem('cookie_ok'))document.getElementById('cookie-banner').style.display='block';</script>
+<script data-vbar-offset>
+(function(){
+  var bar = document.querySelector('nav.vbar');
+  if (!bar) return;
+  var pinned = [];
+  var scan = function(){
+    pinned = [];
+    var all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el === bar || bar.contains(el)) continue;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed') continue;
+      /* 元の top は一度だけ測って覚える。再スキャンで**自分が書いた値**を
+         読むと「top が 60 を超えたから対象外」と判定してしまい、
+         下げたきり追随が止まる（2026-08-15 実測） */
+      var top = el.__vbarTop;
+      if (top === undefined) {
+        top = parseFloat(cs.top);
+        if (isNaN(top) || top > 60) continue;
+        el.__vbarTop = top;
+      }
+      if (el.getBoundingClientRect().height >= innerHeight * 0.9) continue;
+      pinned.push({el: el, top: top});
+    }
+  };
+  var sync = function(){
+    var d = Math.max(0, bar.getBoundingClientRect().bottom);
+    for (var i = 0; i < pinned.length; i++) {
+      pinned[i].el.style.top = (pinned[i].top + d) + 'px';
+    }
+  };
+  var refresh = function(){ scan(); sync(); };
+  addEventListener('scroll', sync, {passive: true});
+  addEventListener('resize', refresh);
+  addEventListener('load', refresh);
+  refresh();
+})();
+</script>
 </body>
 </html>
